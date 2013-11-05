@@ -1,4 +1,14 @@
 https://github.com/samjhill/sqlgenerator
+
+422 - App Development Practices final project. 
+
+Goals
+=====
+1) Generates appropriate SQL statements for any number of database managment systems for the current Edge Diagrammer file, with minimal changes to the code.
+
+2) Replaces Edge Diagrammer with some other tool or schema description file (e.g. XML), and be able to perform the same functions with minimal changes to the application itself.
+
+
 SDLC
 =====
 Extreme Programming (XP)
