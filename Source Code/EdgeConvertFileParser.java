@@ -1,6 +1,12 @@
 import java.io.*;
 import java.util.*;
 import javax.swing.*;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.DocumentBuilder;
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+import org.w3c.dom.Node;
+import org.w3c.dom.Element;
 
 public class EdgeConvertFileParser {
    //private String filename = "test.edg";
@@ -134,6 +140,7 @@ public class EdgeConvertFileParser {
       for (int cIndex = 0; cIndex < connectors.length; cIndex++) {
          endPoint1 = connectors[cIndex].getEndPoint1();
          endPoint2 = connectors[cIndex].getEndPoint2();
+         fieldIndex = -1;
          for (int fIndex = 0; fIndex < fields.length; fIndex++) { //search fields array for endpoints
             if (endPoint1 == fields[fIndex].getNumFigure()) { //found endPoint1 in fields array
                connectors[cIndex].setIsEP1Field(true); //set appropriate flag
@@ -174,7 +181,7 @@ public class EdgeConvertFileParser {
             }
          }
          
-         if (fields[fieldIndex].getTableID() == 0) { //field has not been assigned to a table yet
+         if (fieldIndex >=0 && fields[fieldIndex].getTableID() == 0) { //field has not been assigned to a table yet
             if (connectors[cIndex].getIsEP1Table()) { //endpoint1 is the table
                tables[table1Index].addNativeField(fields[fieldIndex].getNumFigure()); //add to the appropriate table's field list
                fields[fieldIndex].setTableID(tables[table1Index].getNumFigure()); //tell the field what table it belongs to
@@ -182,7 +189,7 @@ public class EdgeConvertFileParser {
                tables[table2Index].addNativeField(fields[fieldIndex].getNumFigure()); //add to the appropriate table's field list
                fields[fieldIndex].setTableID(tables[table2Index].getNumFigure()); //tell the field what table it belongs to
             }
-         } else { //field has already been assigned to a table
+         } else if (fieldIndex >=0) { //field has already been assigned to a table
             JOptionPane.showMessageDialog(null, "The attribute " + fields[fieldIndex].getName() + " is connected to multiple tables.\nPlease resolve this and try again.");
             EdgeConvertGUI.setReadSuccess(false); //this tells GUI not to populate JList components
             break; //stop processing list of Connectors
@@ -282,23 +289,32 @@ public class EdgeConvertFileParser {
    
    public void openFile(File inputFile) {
       try {
-         fr = new FileReader(inputFile);
-         br = new BufferedReader(fr);
-         //test for what kind of file we have
-         currentLine = br.readLine().trim();
-         numLine++;
-         if (currentLine.startsWith(EDGE_ID)) { //the file chosen is an Edge Diagrammer file
-            this.parseEdgeFile(); //parse the file
-            br.close();
-            this.makeArrays(); //convert ArrayList objects into arrays of the appropriate Class type
-            this.resolveConnectors(); //Identify nature of Connector endpoints
+         String extension = null;
+         int index = inputFile.getName().lastIndexOf('.');
+         if(index > 0) {
+             extension = inputFile.getName().substring(index + 1);
+         }
+         if(extension != null && extension.toLowerCase().equals("xml")) {
+             parseXMLFile();
          } else {
-            if (currentLine.startsWith(SAVE_ID)) { //the file chosen is a Save file created by this application
-               this.parseSaveFile(); //parse the file
+            fr = new FileReader(inputFile);
+            br = new BufferedReader(fr);
+            //test for what kind of file we have
+            currentLine = br.readLine().trim();
+            numLine++;
+            if (currentLine.startsWith(EDGE_ID)) { //the file chosen is an Edge Diagrammer file
+               this.parseEdgeFile(); //parse the file
                br.close();
                this.makeArrays(); //convert ArrayList objects into arrays of the appropriate Class type
-            } else { //the file chosen is something else
-               JOptionPane.showMessageDialog(null, "Unrecognized file format");
+               this.resolveConnectors(); //Identify nature of Connector endpoints
+            } else {
+               if (currentLine.startsWith(SAVE_ID)) { //the file chosen is a Save file created by this application
+                  this.parseSaveFile(); //parse the file
+                  br.close();
+                  this.makeArrays(); //convert ArrayList objects into arrays of the appropriate Class type
+               } else { //the file chosen is something else
+                  JOptionPane.showMessageDialog(null, "Unrecognized file format");
+               }
             }
          }
       } // try
@@ -311,4 +327,133 @@ public class EdgeConvertFileParser {
          System.exit(0);
       } // catch IOException
    } // openFile()
+   
+   public void parseXMLFile() {
+       try {
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(parseFile);
+            doc.getDocumentElement().normalize();
+            StringBuffer sqlStatement = new StringBuffer();
+            
+            NodeList tableNodes = doc.getElementsByTagName("table");
+            for(int i = 0; i < tableNodes.getLength(); i++) {
+                String pkey = "";
+                Node tableNode = tableNodes.item(i);
+                
+                if(tableNode.getNodeType() == Node.ELEMENT_NODE) {
+                    Element tableEle = (Element) tableNode;
+                    
+                    sqlStatement.append("create table ");
+                    sqlStatement.append(tableEle.getElementsByTagName("name").item(0).getTextContent());
+                    sqlStatement.append(" (\n");
+                    NodeList fields = tableEle.getElementsByTagName("field");
+                    for(int j = 0; j < fields.getLength(); j++) {
+                        Node fieldNode = fields.item(j);
+                        if(fieldNode.getNodeType() == Node.ELEMENT_NODE) {
+                            //StringBuffer sqlStatement = new StringBuffer();
+                            Element fieldEle = (Element) fieldNode;
+                            String type = "";
+                            int size = 0;
+                            boolean fixed = false;
+                            boolean isNull = false;
+                            boolean autoincrement = false;
+                            sqlStatement.append("\t");
+                            sqlStatement.append(fieldEle.getTextContent().trim());
+                            if(fieldEle.hasAttribute("type")) {
+                                type = fieldEle.getAttribute("type");
+                            }
+                            if(fieldEle.hasAttribute("size")) {
+                                size = Integer.parseInt(fieldEle.getAttribute("size"));
+                            }
+                            if(fieldEle.hasAttribute("fixed")) {
+                                fixed = fieldEle.getAttribute("fixed").equals("true") ? true : false;
+                            }
+                            if(fieldEle.hasAttribute("null")) {
+                                isNull = fieldEle.getAttribute("null").equals("true") ? true : false;
+                            }
+                            if(fieldEle.hasAttribute("autoincrement")) {
+                                autoincrement = fieldEle.getAttribute("autoincrement").equals("true") ? true : false;
+                            }
+                            if(fieldEle.hasAttribute("pkey") && fieldEle.getAttribute("pkey").equals("true")) {
+                                pkey = "primary key(" + fieldEle.getTextContent().trim() + ")\n";
+                            }
+                            
+                            if(type.equals("string") && fixed == true) {
+                                sqlStatement.append(" char(");
+                                sqlStatement.append(size);
+                                sqlStatement.append(")");
+                            } else if(type.equals("string") && fixed == false) {
+                                sqlStatement.append(" varchar(");
+                                sqlStatement.append(size);
+                                sqlStatement.append(")");
+                            } else if(!type.equals("string")) {
+                                sqlStatement.append(" ");
+                                sqlStatement.append(type);
+                            }
+                            
+                            if(!isNull) {
+                                sqlStatement.append(" not null");
+                            }
+                            if(autoincrement) {
+                                sqlStatement.append(" auto_increment");
+                            }
+                            sqlStatement.append(",\n");
+                        }
+                    }
+                    NodeList indices = tableEle.getElementsByTagName("index");
+                    for(int j = 0; j < indices.getLength(); j++) {
+                        Node indexNode = indices.item(j);
+                        if(indexNode.getNodeType() == Node.ELEMENT_NODE) {
+                            Element indexEle = (Element) indexNode;
+                            sqlStatement.append("\tindex ");
+                            sqlStatement.append(indexEle.getAttribute("name"));
+                            sqlStatement.append("(");
+                            sqlStatement.append(indexEle.getTextContent().trim());
+                            sqlStatement.append("),\n");
+                        }
+                    }
+                    Element childEle = (Element) doc.getElementsByTagName("child").item(0);
+                    Element childName = (Element) childEle.getElementsByTagName("tablename").item(0);
+                    String tableName = tableEle.getElementsByTagName("name").item(0).getTextContent().trim();
+                    String childTableName = childName.getTextContent().trim();
+                    if(tableName.equals(childTableName)) {
+                        Element fkey = (Element) childEle.getElementsByTagName("foreignkey").item(0);
+                        String references = fkey.getAttribute("references");
+                        String fkeyName = fkey.getTextContent().trim();
+                        Element parentEle = (Element) doc.getElementsByTagName("parent").item(0);
+                        Element parentName = (Element) parentEle.getElementsByTagName("tablename").item(0);
+                        String parentTableName = parentName.getTextContent().trim();
+                        sqlStatement.append("\tforeign key (");
+                        sqlStatement.append(fkeyName);
+                        sqlStatement.append(") references ");
+                        sqlStatement.append(parentTableName);
+                        sqlStatement.append("(");
+                        sqlStatement.append(references);
+                        sqlStatement.append("),\n");
+                    }
+                }
+                sqlStatement.append("\t");
+                sqlStatement.append(pkey);
+                sqlStatement.append(");\n");
+            }
+            StringBuffer pathBuf = new StringBuffer();
+            String path = parseFile.getAbsolutePath();
+            int index = path.lastIndexOf('.');
+            if(index > 0) {
+                pathBuf.append(path.substring(0,index));
+                pathBuf.append(".sql");
+                path = pathBuf.toString();
+            }
+            File file = new File(path);
+            BufferedWriter bw = new BufferedWriter(new PrintWriter(file));
+            bw.write(sqlStatement.toString());
+            bw.flush();
+            bw.close();
+            //System.out.println(sqlStatement);
+       }
+       catch (Exception e) {
+           
+       }
+   } // parseXMLFile()
 } // EdgeConvertFileHandler
