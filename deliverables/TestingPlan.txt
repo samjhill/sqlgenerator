@@ -1,0 +1,47 @@
+﻿Testing Plan
+Michael Blout
+Gregory Sapienza
+Sam Hill
+
+
+Our testing plan involves a few steps. First, we’ll import the sample file into the converter program. Then, we run the program with sample file. Next, we’ll check the output file, and compare it to the sample provided.
+
+
+Sample Output
+create table users (
+   userid int not null auto_increment,
+   username varchar(100) not null,
+   password char(100) not null,
+   primary key(userid)
+); 
+ 
+create table phonenumbers (
+   phoneid int not null auto_increment,  
+   userid int not null,
+   phonenum char(10) not null,
+   index pn_user_index(userid),  
+   foreign key (userid) references users(userid),  
+   primary key(phoneid)
+);
+
+
+
+
+Method
+Our comparison will involve using a checksum to compare the contents of both files. If they match, our test passes.
+
+
+Test Case 1
+        For this test case we are going to test our method of comparing two files. The goal for this test case is to create two files that we know are exactly the same. We are then going to read in both files, turn each file into strings, and then compare both files for equality. This test case is setting up our test for the rest of the test cases.
+
+
+Test Case 2
+        For this test case, we are going to start with a sample Edge Diagrammer file. The parseEdgeFile method in EdgeConvertFileParser is going to be modified to generate sql create table statements, and then save a sql file. We are then going to test that generated sql file to a file that we create manually to see if we get our expected result from the software.
+
+
+Test Case 3
+        For this test case, there are going to be more changes to the code. We are, this time, going to start with an XML file. We are going to write a separate method, parseXMLFile, in EdgeConvertFileParser. Again, a sql file is going to be generated that we are going to compare with a file that we create manually to see if we get our expected result from the software.
+
+
+Test Case 4
+        For this final test case, we are going to modify the code yet again. This time, we are going to use both and Edge Diagrammer file and an XML file. The code, up to now, has been generating sql files for a mySQL database and we are instead going to have it generate sql statements for an oracle database. This portion is going to be data driven so we can have each file, both the Edge Diagrammer file and the XML file, at the start of the file, determine which database the sql needs to be generated for. The test for this case will be testing both the output of the Edge Diagrammer file and the XML file to the expected, manually created file.

@@ -16,12 +16,21 @@
 		
         <div id="content">
 			
-			<h1>Start your navigation here</h1>
+			<h1>Need help with SQLGenerator?</h1>
             
 			<div id="homeNav">
-			  <a href="faq.php">FAQ</a> check out the frequently asked questions about SQLGenerator.
+			  <p>SQLGenerator converts Edge Diagrammer files into SQL statements to save you time and effort.</p>
+			  <a href="#faq">FAQ</a> check out the frequently asked questions about SQLGenerator.
 			</div>	
 			
+			<div id="faq">
+			  <h2>FAQ</h2>
+			  
+			  <h3>What database management systems does SQLGenerator support?</h3>
+			  <p>SQLGenerator supports MySQL, as well as Oracle. Support for more may be added in the future!</p>
+			  
+			  <h3></h3>
+			</div>
         </div>
 		
 	  <script src="assets/bootstrap/js/bootstrap.min.js"></script>

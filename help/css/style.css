@@ -173,10 +173,10 @@ label{
 
 .navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus{
     color: white;
-    background-color: #595241;
+    background-color: #3A0202;
 }
 a.active{
-	background-color: #595241;
+    background-color: #3A0202;
 }
 /* end nav bar styles */
 
