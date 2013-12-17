@@ -28,6 +28,8 @@
 			<h4>Replace Edge Diagrammer</h4>
 			<p>With some other tool or schema description file and perform the same functions.</p>
 			
+			
+			<a href="https://github.com/samjhill/sqlgenerator" alt="github project" title="visit this project on github!"><i class="fa fa-github"></i> Visit this project on GitHub!</a>
 			<h2>Team Members</h2>
 			
 			<div id="about-1" class="team-member">
