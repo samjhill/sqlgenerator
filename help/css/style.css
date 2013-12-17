@@ -1,0 +1,249 @@
+html, html a {
+    -webkit-font-smoothing: antialiased !important;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+}
+
+a{
+    color: #8A0917;
+}
+
+a:hover{
+    color: #595241;
+}
+html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, time, mark, audio, video {
+    margin: 0;
+    color: #686666;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    outline: 0;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+p{
+    margin: 1em;
+    padding-right: 2.5em;
+}
+pre{
+   width: 85%; 
+}
+label{
+    margin: 1em;
+}
+/*
+#collapse_div{
+	height: 50px;
+	background-color: yellow;
+}*/
+#backToTop{
+    margin-right: 3em;
+    position: fixed;
+    width: 120px;
+    top: 96%;
+    left: 83%;
+}
+
+#collapseOne{
+	/*padding:40px;
+	background-color: yellow;*/
+}
+
+#content{
+    width: 100%;
+    padding: 1.5em;
+    margin: 1em;
+}
+#content h1{
+    font-size: 24pt;
+    margin-bottom: 1em;
+}
+
+#content h2{
+    font-size: 18pt;
+    margin-top: 1em;
+}
+
+#homeNav{
+    display: inline;
+}
+#homeNav ul{
+    list-style: none;
+}
+#homenav ul > li{
+    padding-bottom: 2em;
+}
+
+#icon{
+	position: relative;
+	left: 20%;
+	width: 250px;
+	height: 60px;
+	/*background-color: red;*/
+	
+}
+#icon p{
+	font-weight: bold;
+}
+#icon a:link{
+	text-decoration: none;
+}
+#icontext{
+	position: relative;
+	left: 110px;
+	top: 20px;
+	color: white;
+	font-weight: bold;
+}
+#icon img{
+	position: relative;
+	top: -22px;
+	left: 200px;
+}
+
+#navTitle{
+	/*background-color: green;*/
+	margin: 0px auto;
+	position: relative;
+	text-align: center;
+	border-radius: 5px;
+	margin-bottom: 2em;
+}
+
+#side_navigation{
+    position:fixed; 
+    background-color: white;
+	float: right;
+	width: 15%;
+	margin-right: 2em;
+	right: 0px;
+}
+
+#side_navigation li{
+	list-style: none;
+	margin: .5em;
+}
+
+#side_navigation a{
+    font-size: 14pt;
+}
+
+#date{
+    margin-top: -2em;
+}
+.homeNavItem{
+    font-size: 3em;
+    margin-right: 2em;
+}
+
+.iframe{
+	clear: right;
+}
+
+/* rewrite over nav bar styles */ 
+.navbar{
+    margin-top: -2px;
+    margin-left: -2px;
+    width: 110%;
+}
+
+.navbar i{
+    color: white;
+}
+
+.navbar .nav > li > a{
+    text-shadow: none;
+    font-size: 16pt;
+    color: white;
+}
+
+.navbar .nav > li > a:hover{
+    color: white;
+    background-color: rgba(5, 5, 5, 0.3)
+}
+
+.navbar .brand{
+    font-size: 18pt;
+    color: white;
+}
+
+.navbar-inner{
+   background: linear-gradient(to bottom, #8A0917, #8A0917); 
+}
+
+.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus{
+    color: white;
+    background-color: rgba(5, 5, 5, 0.63)
+}
+a.active{
+    background-color: rgba(5, 5, 5, 0.63)
+}
+/* end nav bar styles */
+
+.panel.panel-default
+{
+    width: 82%;
+}
+
+.panel-body{
+    width: 70%;
+    border: 1px solid #91D7F8;
+    height: auto;
+    margin: 1em;
+    padding-bottom: 1.5em;
+}
+.panel-body pre{
+    width: 50%;    
+}
+.panel-body a{
+    margin-right: 1em;
+}
+.panel-body p,img{
+    margin-bottom: 1em;
+}
+
+.panel-body p,h3,pre,img,.btn{
+    margin-left: 1em;
+    margin-right: .5em;
+}
+
+.panel panel-default{
+    margin-bottom: 200px;
+}
+
+.question{
+    margin-bottom: 3em;
+}
+.team-member{
+    margin-bottom: 5em;
+}
+.team-member img{
+	width: 150px;
+	height: 150px;
+}
+
+.textarea_div, .iframe{
+    float: left;	
+    width: 45%;
+    height: 280px;
+    margin-left: 20px;
+}
+.txtarea{
+    width: 95%;
+    height: 280px;
+}
+
+.tutorial{
+    margin: 1em;
+    padding-bottom: .5em;
+}
+
+.well{
+    width: 80%;
+}
+
+
+
+
+
+
