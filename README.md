@@ -2,6 +2,10 @@ https://github.com/samjhill/sqlgenerator
 
 422 - App Development Practices final project. 
 
+Visit help docs site!
+=====
+http://www.samjhill.com/projects/sqlgenerator/help/
+
 Goals
 =====
 1) Generates appropriate SQL statements for any number of database managment systems for the current Edge Diagrammer file, with minimal changes to the code.
