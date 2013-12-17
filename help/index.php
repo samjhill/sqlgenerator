@@ -22,6 +22,41 @@
 			  <p>SQLGenerator converts Edge Diagrammer files into SQL statements to save you time and effort.</p>
 			</div>	
 			
+			<div id="start-guide">
+			<div id="startup-carousel" class="carousel slide" data-ride="carousel">
+				<ol class="carousel-indicators">
+					<li data-target="#startup-carousel" data-slide-to="0" class="active"></li>
+					<li data-target="#startup-carousel" data-slide-to="1"></li>
+					<li data-target="#startup-carousel" data-slide-to="2"></li>
+				</ol>
+
+			<! -- slides -->
+			<div class="carousel-inner">
+				<div class="item active">
+					<img src="http://goo.gl/cNNKs1" alt="step 1">
+					<div class="carousel-caption">Step 1: Load an Edge Diagrammer or XML file into the program.</div>
+				</div>
+				<div class="item">
+					<img src="http://goo.gl/fUkEK4" alt="step 2">
+					<div class="carousel-caption">Step 2: Hit convert</div>
+				</div>
+				<div class="item">
+					<img src="" alt="step 3">
+					<div class="carousel-caption">Step 3: Paste the results into your database management system. Run it!</div>
+
+				</div>
+			<! -- controls -->
+			<a class="left carousel-control" href="#startup-carousel" data-slide="prev">
+				<span class="glyphicon  glyphicon-chevron-left"></span>
+			</a>
+
+			<a class="right carousel-control" href="#startup-carousel" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right"></span>
+			</a>
+			</div>
+			</div>
+
+
 			<div id="faq">
 			  <h2>FAQ</h2>
 			  
