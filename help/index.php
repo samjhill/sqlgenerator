@@ -19,6 +19,7 @@
 			<h1>Start your navigation here</h1>
             
 			<div id="homeNav">
+			  <a href="faq.php">FAQ</a> check out the frequently asked questions about SQLGenerator.
 			</div>	
 			
         </div>
