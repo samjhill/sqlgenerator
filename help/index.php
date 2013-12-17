@@ -7,12 +7,12 @@
     <head>
 		<meta charset='utf-8' />
 		<title>Home - Help for SQLGenerator</title>
-		<?php include("php/links.php"); ?>
+		<?php include("assets/php/links.php"); ?>
 	</head>
 
     <body>		
 		<!--php navigation include-->
-		<?php include("php/navigation.php"); ?>
+		<?php include("assets/php/navigation.php"); ?>
 		
         <div id="content">
 			
@@ -29,10 +29,10 @@
 			  <p>SQLGenerator supports MySQL, as well as Oracle. Support for more may be added in the future!</p>
 			  
 			  <h3>Does SQLGenerator support XML?</h3>
-			  <p>Because EdgeDiagrammer isn't within everyone's budget, we also included the ability to use XML files to create your SQL statments with SQLGenerator.</p>
+			  <p>Yes. Because EdgeDiagrammer isn't within everyone's budget, we also included the ability to use XML files to create your SQL statments with SQLGenerator.</p>
 			</div>
         </div>
 		
-	  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	  <script src="assets/libraries/bootstrap/js/bootstrap.min.js"></script>
     </body>
 </html>
