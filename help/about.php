@@ -22,8 +22,11 @@
 		<div id="content">
 			<h1>About SQLGenerator and its team</h1>
 			<p>SQLGenerator's team was formed in RIT's ISTE 422 class - App Development practices. Our goal was twofold:
-			<li>Generate the appropriate statements</li>
+			<h4>Generate the appropriate statements</h4>
 			<p>For any number of database management systesms, given an Edge Diagrammer file. We were provided with some base code, and had to restructuve it and provide it with the information it needs to create the tables on a different DBMS without major rewriting of the code. Then, the company can switch vendors with minimal effort.</p>
+			
+			<h4>Replace Edge Diagrammer</h4>
+			<p>With some other tool or schema description file and perform the same functions.</p>
 			
 			<h2>Team Members</h2>
 			
