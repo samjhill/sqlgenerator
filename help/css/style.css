@@ -159,7 +159,7 @@ label{
 
 .navbar .nav > li > a:hover{
     color: white;
-    background-color: #595241;
+    background-color: rgba(5, 5, 5, 0.3)
 }
 
 .navbar .brand{
@@ -173,10 +173,10 @@ label{
 
 .navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus{
     color: white;
-    background-color: #3A0202;
+    background-color: rgba(5, 5, 5, 0.63)
 }
 a.active{
-    background-color: #3A0202;
+    background-color: rgba(5, 5, 5, 0.63)
 }
 /* end nav bar styles */
 

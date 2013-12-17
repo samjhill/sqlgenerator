@@ -20,7 +20,6 @@
             
 			<div id="homeNav">
 			  <p>SQLGenerator converts Edge Diagrammer files into SQL statements to save you time and effort.</p>
-			  <a href="#faq">FAQ</a> check out the frequently asked questions about SQLGenerator.
 			</div>	
 			
 			<div id="faq">
@@ -29,7 +28,8 @@
 			  <h3>What database management systems does SQLGenerator support?</h3>
 			  <p>SQLGenerator supports MySQL, as well as Oracle. Support for more may be added in the future!</p>
 			  
-			  <h3></h3>
+			  <h3>Does SQLGenerator support XML?</h3>
+			  <p>Because EdgeDiagrammer isn't within everyone's budget, we also included the ability to use XML files to create your SQL statments with SQLGenerator.</p>
 			</div>
         </div>
 		
