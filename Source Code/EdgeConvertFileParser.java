@@ -450,7 +450,6 @@ public class EdgeConvertFileParser {
             bw.write(sqlStatement.toString());
             bw.flush();
             bw.close();
-            //System.out.println(sqlStatement);
        }
        catch (Exception e) {
            

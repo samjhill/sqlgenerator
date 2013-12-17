@@ -43,7 +43,7 @@ public class EdgeConvertFileParserTest extends TestCase {
             testSb.append(testLine);
         }
         String testFileContents = testSb.toString();
-        
+        //making a change
         File generatedFile = new File("C:\\Users\\Mike\\Desktop\\final project\\alternative_diagrammer_file.sql");
         BufferedReader generatedBr = new BufferedReader(new FileReader(generatedFile));
         StringBuilder generatedSb = new StringBuilder();
