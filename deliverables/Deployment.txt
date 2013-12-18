@@ -17,7 +17,7 @@ Those that stand to be affected by this software include: managers, because they
 
 Key Issues
 ====
-
+The company has Edge Diagrammer files, as well as XML files, and needs to use them to create databases. They want to minimize time spent when switching between DBMS.
 
 Maintanance
 ====
