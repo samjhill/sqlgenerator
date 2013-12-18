@@ -69,7 +69,8 @@
 			  <h3>Can I get a sample XML file to make sure I'm formatting mine correctly?</h3>
 			  <p><a target="_blank" href="assets/sample/alternative_diagrammer_file.xml">Sure.</a></p>
 			  
-			  
+			  <h3>What does the output look like?</h3>
+			  <p><a target="_blank" href="assets/sample/alternative_diagrammer_file.sql">This.</a></p>
 			</div>
         </div>
 		
