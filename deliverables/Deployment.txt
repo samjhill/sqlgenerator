@@ -1,0 +1,23 @@
+SQLGenerator Deployment Strategy
+====
+====
+
+
+Executive Summary
+====
+We will deploy the software as an applet. This allows for server-side updates and a seamless client experience.
+
+Aims
+----
+This software lessens the workload when switching database management system providers.
+
+Stakeholders
+====
+Those that stand to be affected by this software include: managers, because they control the budgets of their departments; database architects, because it aims to save their time; and all others that might use the program. 
+
+Key Issues
+====
+
+
+Maintanance
+====
