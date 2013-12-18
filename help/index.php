@@ -47,11 +47,11 @@
 				</div>
 			<! -- controls -->
 			<a class="left carousel-control" href="#startup-carousel" data-slide="prev">
-				<span class="glyphicon  glyphicon-chevron-left"></span>
+				<i class="fa fa-chevron-left"></i>
 			</a>
 
 			<a class="right carousel-control" href="#startup-carousel" data-slide="next">
-				<span class="glyphicon glyphicon-chevron-right"></span>
+				<i class="fa fa-chevron-right"></i>
 			</a>
 			</div>
 			</div>

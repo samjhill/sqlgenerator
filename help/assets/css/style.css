@@ -131,6 +131,9 @@ label{
 #date{
     margin-top: -2em;
 }
+.carousel{
+    max-width: 90%;
+}
 .homeNavItem{
     font-size: 3em;
     margin-right: 2em;
