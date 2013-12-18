@@ -1,4 +1,7 @@
 import java.awt.*;
+import java.net.*;
+import java.awt.Desktop;
+import java.net.URI;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
@@ -1270,9 +1273,25 @@ public class EdgeConvertGUI {
          }
          
          if ((ae.getSource() == jmiDTHelpAbout) || (ae.getSource() == jmiDRHelpAbout)) {
-            JOptionPane.showMessageDialog(null, "EdgeConvert ERD To DDL Conversion Tool\n" +
-                                                "by Stephen A. Capperell\n" +
-                                                "© 2007-2008");
+           String url = "http://www.samjhill.com/projects/sqlgenerator/help/";
+            if(Desktop.isDesktopSupported()){
+                Desktop desktop = Desktop.getDesktop();
+                try {
+                    desktop.browse(new URI(url));
+                } catch (IOException | URISyntaxException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }else{
+                Runtime runtime = Runtime.getRuntime();
+                try {
+                    runtime.exec("xdg-open " + url);
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+            
          }
       } // EdgeMenuListener.actionPerformed()
    } // EdgeMenuListener
