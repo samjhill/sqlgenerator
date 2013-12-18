@@ -8,7 +8,7 @@ Executive Summary
 We will deploy the software as an applet. This allows for server-side updates and a seamless client experience.
 
 Aims
-----
+====
 This software lessens the workload when switching database management system providers.
 
 Stakeholders
@@ -21,3 +21,10 @@ The company has Edge Diagrammer files, as well as XML files, and needs to use th
 
 Maintanance
 ====
+We will be supporting existing features, as well as adding new features as planned and requested.
+
+Features
+----
+* Add confirmation when a file has been converted
+* Simple converter for those who do not need to manipulate the file inside the program
+* Add support for other DBMS's
