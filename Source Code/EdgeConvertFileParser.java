@@ -9,7 +9,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 
 public class EdgeConvertFileParser {
-   //private String filename = "test.edg";
+   private boolean isXML = false;
    private File parseFile;
    private FileReader fr;
    private BufferedReader br;
@@ -295,6 +295,7 @@ public class EdgeConvertFileParser {
              extension = inputFile.getName().substring(index + 1);
          }
          if(extension != null && extension.toLowerCase().equals("xml")) {
+             isXML = true;
              parseXMLFile();
          } else {
             fr = new FileReader(inputFile);
@@ -327,6 +328,10 @@ public class EdgeConvertFileParser {
          System.exit(0);
       } // catch IOException
    } // openFile()
+   
+   public boolean isXML() {
+       return isXML;
+   }
    
    public void parseXMLFile() {
        try {

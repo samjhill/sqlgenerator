@@ -1173,26 +1173,28 @@ public class EdgeConvertGUI {
             if (returnVal == JFileChooser.APPROVE_OPTION) {
                parseFile = jfcEdge.getSelectedFile();
                ecfp = new EdgeConvertFileParser(parseFile);
-               tables = ecfp.getEdgeTables();
-               for (int i = 0; i < tables.length; i++) {
-                  tables[i].makeArrays();
-               }
-               fields = ecfp.getEdgeFields();
-               ecfp = null;
-               populateLists();
-               saveFile = null;
-               jmiDTSave.setEnabled(false);
-               jmiDRSave.setEnabled(false);
-               jmiDTSaveAs.setEnabled(true);
-               jmiDRSaveAs.setEnabled(true);
-               jbDTDefineRelations.setEnabled(true);
+               if(!ecfp.isXML()) {
+                    tables = ecfp.getEdgeTables();
+                    for (int i = 0; i < tables.length; i++) {
+                       tables[i].makeArrays();
+                    }
+                    fields = ecfp.getEdgeFields();
+                    ecfp = null;
+                    populateLists();
+                    saveFile = null;
+                    jmiDTSave.setEnabled(false);
+                    jmiDRSave.setEnabled(false);
+                    jmiDTSaveAs.setEnabled(true);
+                    jmiDRSaveAs.setEnabled(true);
+                    jbDTDefineRelations.setEnabled(true);
 
-               jbDTCreateDDL.setEnabled(true);
-               jbDRCreateDDL.setEnabled(true);
-               
-               truncatedFilename = parseFile.getName().substring(parseFile.getName().lastIndexOf(File.separator) + 1);
-               jfDT.setTitle(DEFINE_TABLES + " - " + truncatedFilename);
-               jfDR.setTitle(DEFINE_RELATIONS + " - " + truncatedFilename);
+                    jbDTCreateDDL.setEnabled(true);
+                    jbDRCreateDDL.setEnabled(true);
+
+                    truncatedFilename = parseFile.getName().substring(parseFile.getName().lastIndexOf(File.separator) + 1);
+                    jfDT.setTitle(DEFINE_TABLES + " - " + truncatedFilename);
+                    jfDR.setTitle(DEFINE_RELATIONS + " - " + truncatedFilename);
+               }
             } else {
                return;
             }
