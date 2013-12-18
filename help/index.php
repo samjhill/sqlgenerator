@@ -67,7 +67,7 @@
 			  <p>Yes. Because EdgeDiagrammer isn't within everyone's budget, we also included the ability to use XML files to create your SQL statments with SQLGenerator.</p>
 			  
 			  <h3>Can I get a sample XML file to make sure I'm formatting mine correctly?</h3>
-			  <a target="_blank" href="assets/sample/alternative_diagrammer_file.xml">Sure.</a>
+			  <p><a target="_blank" href="assets/sample/alternative_diagrammer_file.xml">Sure.</a></p>
 			  
 			  
 			</div>
