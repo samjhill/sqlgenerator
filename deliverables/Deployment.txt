@@ -5,7 +5,7 @@ SQLGenerator Deployment Strategy
 
 Executive Summary
 ====
-We will deploy the software as an applet. This allows for server-side updates and a seamless client experience.
+We will deploy the software as an applet. This allows for server-side updates and a seamless client experience. Though basic functionality is complete, we will be adding new features, too.
 
 Aims
 ====
@@ -21,7 +21,7 @@ The company has Edge Diagrammer files, as well as XML files, and needs to use th
 
 Maintanance
 ====
-We will be supporting existing features, as well as adding new features as planned and requested.
+We will be supporting existing features, as well as adding new features as planned and requested. Users can use the company's ticketing software to report bugs they might find.
 
 Features
 ----
@@ -31,4 +31,4 @@ Features
 
 Known Issues & Bugs
 ----
-*
+* 
