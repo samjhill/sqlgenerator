@@ -33,16 +33,16 @@
 			<! -- slides -->
 			<div class="carousel-inner">
 				<div class="item active">
-					<img src="http://goo.gl/cNNKs1" alt="step 1">
-					<div class="carousel-caption">Step 1: Load an Edge Diagrammer or XML file into the program.</div>
+					<img src="assets/images/step1.png" alt="step 1">
+					<div class="carousel-caption"> Step 1: Set the output file location.</div>
 				</div>
 				<div class="item">
-					<img src="http://goo.gl/fUkEK4" alt="step 2">
-					<div class="carousel-caption">Step 2: Hit convert</div>
+					<img src="assets/images/step2.png" alt="step 2">
+					<div class="carousel-caption"> Step 2: Load an Edge Diagrammer or XML file into the program.</div>
 				</div>
 				<div class="item">
-					<img src="" alt="step 3">
-					<div class="carousel-caption">Step 3: Paste the results into your database management system. Run it!</div>
+					<img src="assets/images/step3.png" alt="step 3">
+					<div class="carousel-caption"> Step 3: Run the results!</div>
 
 				</div>
 			<! -- controls -->
