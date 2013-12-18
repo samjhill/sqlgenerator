@@ -28,3 +28,7 @@ Features
 * Add confirmation when a file has been converted
 * Simple converter for those who do not need to manipulate the file inside the program
 * Add support for other DBMS's
+
+Known Issues & Bugs
+----
+*
