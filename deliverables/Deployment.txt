@@ -5,10 +5,10 @@ SQLGenerator Deployment Strategy
 
 Executive Summary
 ====
-We will deploy the software as an applet. This allows for server-side updates and a seamless client experience.
+We will deploy the software as an applet. This allows for server-side updates and a seamless client experience. Though basic functionality is complete, we will be adding new features, too.
 
 Aims
-----
+====
 This software lessens the workload when switching database management system providers.
 
 Stakeholders
@@ -17,7 +17,18 @@ Those that stand to be affected by this software include: managers, because they
 
 Key Issues
 ====
-
+The company has Edge Diagrammer files, as well as XML files, and needs to use them to create databases. They want to minimize time spent when switching between DBMS.
 
 Maintanance
 ====
+We will be supporting existing features, as well as adding new features as planned and requested. Users can use the company's ticketing software to report bugs they might find.
+
+Features
+----
+* Add confirmation when a file has been converted
+* Simple converter for those who do not need to manipulate the file inside the program
+* Add support for other DBMS's
+
+Known Issues & Bugs
+----
+* 

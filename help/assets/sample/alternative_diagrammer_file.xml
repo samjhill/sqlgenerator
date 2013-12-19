@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<diagram>
+	<tables>
+		<table>
+			<name>users</name>
+			<fields>
+				<field type="string" size="100" fixed="false" pkey="false" null="false" autoincrement="false">
+					username
+				</field>
+				<field type="string" size="100" fixed="true" pkey="false" null="false" autoincrement="false">
+					password
+				</field>
+				<field type="int" pkey="true" null="false" autoincrement="true">
+					userid
+				</field>
+			</fields>
+		</table>
+		<table>
+			<name>phonenumbers</name>
+			<fields>
+				<field type="string" size="10" fixed="true" pkey="false" null="false" autoincrement="false">
+					phonenum
+				</field>
+				<field type="int" pkey="true" null="false" autoincrement="true">
+					phoneid
+				</field>
+				<field type="int" pkey="false" null="false" autoincrement="false">
+					userid
+				</field>
+				<index name="pn_user_index">
+					userid
+				</index>
+			</fields>
+		</table>
+	</tables>
+	<relationships>
+		<name>
+			phones
+		</name>
+		<parent cardinality="one">
+			<tablename>
+				users
+			</tablename>
+		</parent>
+		<child cardinality="many">
+			<tablename>
+				phonenumbers
+			</tablename>
+			<foreignkey references="userid	">
+				userid
+			</foreignkey>
+		</child>
+	</relationships>
+</diagram>

@@ -33,25 +33,25 @@
 			<! -- slides -->
 			<div class="carousel-inner">
 				<div class="item active">
-					<img src="http://goo.gl/cNNKs1" alt="step 1">
-					<div class="carousel-caption">Step 1: Load an Edge Diagrammer or XML file into the program.</div>
+					<img src="assets/images/step1.png" alt="step 1">
+					<div class="carousel-caption"> Step 1: Set the output file location.</div>
 				</div>
 				<div class="item">
-					<img src="http://goo.gl/fUkEK4" alt="step 2">
-					<div class="carousel-caption">Step 2: Hit convert</div>
+					<img src="assets/images/step2.png" alt="step 2">
+					<div class="carousel-caption"> Step 2: Load an Edge Diagrammer or XML file into the program.</div>
 				</div>
 				<div class="item">
-					<img src="" alt="step 3">
-					<div class="carousel-caption">Step 3: Paste the results into your database management system. Run it!</div>
+					<img src="assets/images/step3.png" alt="step 3">
+					<div class="carousel-caption"> Step 3: Run the results!</div>
 
 				</div>
 			<! -- controls -->
 			<a class="left carousel-control" href="#startup-carousel" data-slide="prev">
-				<span class="glyphicon  glyphicon-chevron-left"></span>
+				<i class="fa fa-chevron-left"></i>
 			</a>
 
 			<a class="right carousel-control" href="#startup-carousel" data-slide="next">
-				<span class="glyphicon glyphicon-chevron-right"></span>
+				<i class="fa fa-chevron-right"></i>
 			</a>
 			</div>
 			</div>
@@ -65,6 +65,12 @@
 			  
 			  <h3>Does SQLGenerator support XML?</h3>
 			  <p>Yes. Because EdgeDiagrammer isn't within everyone's budget, we also included the ability to use XML files to create your SQL statments with SQLGenerator.</p>
+			  
+			  <h3>Can I get a sample XML file to make sure I'm formatting mine correctly?</h3>
+			  <p><a target="_blank" href="assets/sample/alternative_diagrammer_file.xml">Sure.</a></p>
+			  
+			  <h3>What does the output look like?</h3>
+			  <p><a target="_blank" href="assets/sample/alternative_diagrammer_file.sql">This.</a></p>
 			</div>
         </div>
 		
